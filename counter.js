@@ -19,9 +19,28 @@ var fiveFlag = false;
 
 var intervalStopper = false;
 
-currentOne.innerText = 0;
-
 let arry = new Array(0, 0, 0, 0, 0);
+
+function reset() {
+  currentOne.innerText = 0;
+  nextOne.innerText = 0;
+  nextTwo.innerText = 0;
+  currentTwo.innerText = 0;
+  nextThree.innerText = 0;
+  currentThree.innerText = 0;
+  nextFour.innerText = 0;
+  currentFour.innerText = 0;
+  nextFive.innerText = 0;
+  currentFive.innerText = 0;
+  // arry = 0;
+  input.value = "";
+  oneFlag = false;
+  twoFlag = false;
+  threeFlag = false;
+  fourFlag = false;
+  fiveFlag = false;
+
+}
 
 function end() {
   if (currentOne.innerText && nextOne.innerText >= 0) {
@@ -68,6 +87,8 @@ button.addEventListener("click", function () {
 });
 
 function counter() {
+  intervalStopper = false;
+
   var upcommingValue = input.value;
 
   var wordLenght = String(upcommingValue.length);
@@ -103,6 +124,7 @@ function counter() {
 
         setTimeout(() => {
           alert("Counter Completed");
+          reset();
         }, 10);
       }
     }
