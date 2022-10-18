@@ -39,7 +39,6 @@ function reset() {
   threeFlag = false;
   fourFlag = false;
   fiveFlag = false;
-
 }
 
 function end() {
@@ -87,6 +86,12 @@ button.addEventListener("click", function () {
 });
 
 function counter() {
+  if (input.value <= 0 || input.value > 99999) {
+    intervalStopper = true;
+    alert("please add valid value");
+    input.value = "";
+    return;
+  }
   intervalStopper = false;
 
   var upcommingValue = input.value;
@@ -109,6 +114,9 @@ function counter() {
 
     upcommingValue = parseInt(upcommingValue / 10);
   }
+
+  // setInterval(() => {
+  // }, 500);
 
   let interval = setInterval(() => {
     nextOne.innerText++;
